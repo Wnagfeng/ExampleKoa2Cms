@@ -12,30 +12,16 @@ class UserService {
     }
 
     async createUser(user) {
-        const { username, password } = user;
-        const statement = 'INSERT INTO `users` (UserName, Password) VALUES (?, ?);';
-        const [result] = await conn.execute(statement, [username, password]);
+        const { username, password, salt } = user;
+        const statement = 'INSERT INTO `users` (UserName, Password,salt) VALUES (?, ?,?);';
+        const [result] = await conn.execute(statement, [username, password, salt]);
         return result;
     }
 
-    getUserList() {
-        return [
-            {
-                id: 1,
-                name: 'John',
-                age: 25
-            },
-            {
-                id: 2,
-                name: 'Mary',
-                age: 30
-            },
-            {
-                id: 3,
-                name: 'Tom',
-                age: 28
-            }
-        ];
+    async getUserSaltByName(name) {
+        const statement = 'SELECT salt FROM `users` WHERE UserName = ?;';
+        const [result] = await conn.execute(statement, [name]);
+        return result[0].salt;
     }
 }
 

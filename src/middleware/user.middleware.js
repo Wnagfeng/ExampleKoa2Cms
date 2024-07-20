@@ -1,8 +1,9 @@
 const jwt = require('jsonwebtoken');
 const errorTypes = require('../constants/error-types');
 const userService = require("../service/user.service")
-const md5password = require("../utils/password-handle")
-const { PUBLIC_KEY } = require('../app/config');
+const { generateSalt, md5password } = require("../utils/password-handle")
+const { PUBLIC_KEY, WEB_PRIVATE_KEY } = require('../app/config');
+const { decrypt } = require("../utils/rsa")
 const verifyUser = async (ctx, next) => {
     const { username, password } = ctx.request.body;
     if (!username || !password) {
@@ -19,7 +20,11 @@ const verifyUser = async (ctx, next) => {
 // 处理密码的middleware~
 const handlePassword = async (ctx, next) => {
     const { password } = ctx.request.body;
-    ctx.request.body.password = md5password(password)
+    // 获取一个盐值
+    const salt = generateSalt();
+    // 加密密码
+    ctx.request.body.password = md5password(password, salt)
+    ctx.request.body.salt = salt
     await next();
 }
 // 验证登录的middleware~
@@ -40,13 +45,13 @@ const verifyLogin = async (ctx, next) => {
         const error = new Error(errorTypes.USER_DOES_NOT_EXISTS);
         return ctx.app.emit('error', error, ctx);
     }
-
-    // 4.判断密码是否和数据库中的密码是一致(加密)
-    if (md5password(password) !== user.Password) {
+    // 4.对前端传递的密码进行解密
+    const DecryptPassword = decrypt(password, WEB_PRIVATE_KEY)
+    const salt = await userService.getUserSaltByName(username)
+    if (md5password(DecryptPassword, salt) !== user.Password) {
         const error = new Error(errorTypes.PASSWORD_IS_INCORRENT);
         return ctx.app.emit('error', error, ctx);
     }
-
     ctx.user = user;
     await next();
 }
@@ -65,7 +70,6 @@ const verifyAuth = async (ctx, next) => {
             algorithms: ["RS256"]
         });
         ctx.user = result;
-        console.log(result)
         await next();
     } catch (err) {
         const error = new Error(errorTypes.UNAUTHORIZATION);
