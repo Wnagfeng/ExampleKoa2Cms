@@ -5,5 +5,5 @@ const { verifyUser, handlePassword, verifyLogin, verifyAuth } = require('../midd
 const { login, success } = require("../controller/auth.controller")
 User.post("/register", verifyUser, handlePassword, register);
 User.post('/login', verifyLogin, login);
-User.post("/testlogin", verifyAuth, success)
+User.get("/testlogin", verifyAuth, success)
 module.exports = User;
