@@ -5,6 +5,7 @@ const { generateSalt, md5password } = require("../utils/password-handle")
 const { PUBLIC_KEY, WEB_PRIVATE_KEY } = require('../app/config');
 const { decrypt } = require("../utils/rsa")
 const verifyUser = async (ctx, next) => {
+   
     const { username, password } = ctx.request.body;
     if (!username || !password) {
         const error = new Error(errorTypes.NAME_OR_PASSWORD_IS_REQUIRED);
@@ -48,7 +49,7 @@ const verifyLogin = async (ctx, next) => {
     // 4.对前端传递的密码进行解密
     const DecryptPassword = decrypt(password, WEB_PRIVATE_KEY)
     const salt = await userService.getUserSaltByName(username)
-    if (md5password(DecryptPassword, salt) !== user.Password) {
+    if (md5password(DecryptPassword, salt) !== user.password) {
         const error = new Error(errorTypes.PASSWORD_IS_INCORRENT);
         return ctx.app.emit('error', error, ctx);
     }
@@ -76,9 +77,29 @@ const verifyAuth = async (ctx, next) => {
         ctx.app.emit('error', error, ctx);
     }
 }
+// 验证用户名是否存在的middleware~
+const verifyUsername = async (ctx, next) => {
+    // 1.获取用户名和密码
+    const { username, password } = ctx.request.body;
+    // 2.判断用户名和密码是否为空
+    if (!username || !password) {
+        const error = new Error(errorTypes.NAME_OR_PASSWORD_IS_REQUIRED);
+        return ctx.app.emit('error', error, ctx);
+    }
+    // 3.判断用户是否存在的
+    const result = await userService.getUserByName(username);
+    const user = result[0];
+    if (user) {
+        const error = new Error(errorTypes.USER_ALREADY_EXISTS);
+        return ctx.app.emit('error', error, ctx);
+    }
+    ctx.user = user;
+    await next();
+}
 module.exports = {
     verifyUser,
     handlePassword,
     verifyLogin,
-    verifyAuth
+    verifyAuth,
+    verifyUsername
 }
