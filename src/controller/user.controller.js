@@ -29,6 +29,7 @@ class UserController {
         })
         return ctx.body = {
             code: 200,
+            totalCount: res.length,
             message: "获取用户列表成功！",
             data: res
         }

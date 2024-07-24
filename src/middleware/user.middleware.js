@@ -5,7 +5,6 @@ const { generateSalt, md5password } = require("../utils/password-handle")
 const { PUBLIC_KEY, WEB_PRIVATE_KEY } = require('../app/config');
 const { decrypt } = require("../utils/rsa")
 const verifyUser = async (ctx, next) => {
-   
     const { username, password } = ctx.request.body;
     if (!username || !password) {
         const error = new Error(errorTypes.NAME_OR_PASSWORD_IS_REQUIRED);

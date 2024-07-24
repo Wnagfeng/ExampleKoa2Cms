@@ -28,6 +28,10 @@ const errorHandler = (error, ctx) => {
             status = 401; // 参数错误
             message = "您不具备操作的权限~";
             break;
+        case errorTypes.DEPARTMENT_NAME_EXISTS:
+            status = 400; // 参数错误
+            message = "部门名称已存在~";
+            break;
         default:
             status = 404;
             message = "NOT FOUND";
