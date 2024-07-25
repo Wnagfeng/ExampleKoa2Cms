@@ -54,6 +54,60 @@ class GoodsController {
             data: res,
         };
     }
+    async insertProducts(ctx, next) {
+        const products = ctx.request.body.list;
+        const res = await GoodsService.insertProducts(products);
+        ctx.body = {
+            code: 200,
+            message: '插入成功！',
+            data: res,
+        };
+    }
+    async createProduct(ctx, next) {
+        const product = ctx.request.body;
+        const res = await GoodsService.createProduct(product);
+        if (res.affectedRows === 1) {
+            ctx.body = {
+                code: 200,
+                message: '创建成功！',
+                data: res,
+            }
+        }
+    }
+    async patchProduct(ctx, next) {
+        const product = ctx.request.body;
+        const id = ctx.params.id;
+        const res = await GoodsService.patchProduct(product, id);
+        if (res.affectedRows === 1) {
+            ctx.body = {
+                code: 200,
+                message: '更新成功！',
+                data: res,
+            }
+        }
+    }
+    async deleteProduct(ctx, next) {
+        const id = ctx.params.id;
+        const res = await GoodsService.deleteProduct(id);
+        if (res.affectedRows === 1) {
+            ctx.body = {
+                code: 200,
+                message: '删除成功！',
+                data: res,
+            }
+        }
+    }
+    async getProducy(ctx, next) {
+        const id = ctx.params.id;
+        const res = await GoodsService.getProduct(id);
+        if (res) {
+            ctx.body = {
+                code: 200,
+                message: '查询成功！',
+                data: res,
+            }
+        }
+    }
 }
 
 module.exports = new GoodsController();

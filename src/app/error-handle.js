@@ -32,6 +32,10 @@ const errorHandler = (error, ctx) => {
             status = 400; // 参数错误
             message = "部门名称已存在~";
             break;
+        case errorTypes.CATEGORIE_NAME_EXISTS:
+            status = 400; // 参数错误
+            message = "分类名称已存在~";
+            break;
         default:
             status = 404;
             message = "NOT FOUND";
