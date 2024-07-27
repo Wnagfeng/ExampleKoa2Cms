@@ -18,9 +18,6 @@ const password = 'userPassword123';
 const salt = generateSalt();
 const hashedPassword = md5password(password, salt);
 
-console.log('Salt:', salt);
-console.log('Hashed Password:', hashedPassword);
-
 // 验证用户输入的密码
 const verifyPassword = (inputPassword, salt, storedHashedPassword) => {
     const inputHashedPassword = md5password(inputPassword, salt);

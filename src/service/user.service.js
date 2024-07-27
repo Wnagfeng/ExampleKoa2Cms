@@ -12,7 +12,6 @@ class UserService {
     }
 
     async registerUser(user) {
-        console.log("user")
         const { username, password, salt } = user;
         const statement = 'INSERT INTO `users` (username, Password,salt) VALUES (?, ?,?);';
         const [result] = await conn.execute(statement, [username, password, salt]);

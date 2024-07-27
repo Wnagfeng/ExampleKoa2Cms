@@ -42,7 +42,6 @@ class Categoriecontroller {
     async patchCategrie(ctx, next) {
         const { id } = ctx.params;
         const { name } = ctx.request.body;
-        console.log(name, id)
         const res = await CategorieService.patchCategrie(id, name)
         if (res) {
             ctx.body = {
@@ -64,9 +63,7 @@ class Categoriecontroller {
         }
     }
     async getCategoriesList(ctx, next) {
-        console.log("111")
         const res = await CategorieService.getCategoriesList()
-        console.log(ctx.request.body)
         if (res) {
             ctx.body = {
                 code: 200,

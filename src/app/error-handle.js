@@ -36,6 +36,14 @@ const errorHandler = (error, ctx) => {
             status = 400; // 参数错误
             message = "分类名称已存在~";
             break;
+        case errorTypes.MENU_NAME_EXISTS:
+            status = 400; // 参数错误
+            message = "菜单名称已存在~";
+            break;
+        case errorTypes.MENU_URL_EXISTS:
+            status = 400; // 参数错误
+            message = "菜单URL已存在~";
+            break;
         default:
             status = 404;
             message = "NOT FOUND";
