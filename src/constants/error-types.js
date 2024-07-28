@@ -8,6 +8,7 @@ const DEPARTMENT_NAME_EXISTS = 'department_name_exists';
 const CATEGORIE_NAME_EXISTS = 'categorie_name_exists';
 const MENU_NAME_EXISTS = 'menu_name_exists';
 const MENU_URL_EXISTS = 'menu_url_exists';
+const ROLE_NAME_EXISTS = 'role_name_exists';
 
 module.exports = {
   NAME_OR_PASSWORD_IS_REQUIRED,
@@ -19,5 +20,6 @@ module.exports = {
   DEPARTMENT_NAME_EXISTS,
   CATEGORIE_NAME_EXISTS,
   MENU_NAME_EXISTS,
-  MENU_URL_EXISTS
+  MENU_URL_EXISTS,
+  ROLE_NAME_EXISTS
 }

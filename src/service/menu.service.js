@@ -1,5 +1,4 @@
 const conn = require('../app/database');
-const { buildMenuTree } = require("../utils/mapMenu")
 class MenuService {
     constructor() {
 

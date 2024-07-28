@@ -44,6 +44,10 @@ const errorHandler = (error, ctx) => {
             status = 400; // 参数错误
             message = "菜单URL已存在~";
             break;
+        case errorTypes.ROLE_NAME_EXISTS:
+            status = 400; // 参数错误
+            message = "角色名称已存在~";
+            break;
         default:
             status = 404;
             message = "NOT FOUND";
