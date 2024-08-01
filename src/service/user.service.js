@@ -25,23 +25,72 @@ class UserService {
     }
     async getUserList(queryData) {
         const { offset, size, name, cellphone } = queryData;
-        let statement = 'SELECT * FROM `users` ';
+
+        // 构建查询条件
+        let baseStatement = `
+            SELECT 
+                u.userid,
+                u.username,
+                u.roleid,
+                u.cellphone,
+                u.state,
+                u.departmentid,
+                u.created_at,
+                u.updated_at,
+                u.realname,
+                d.name AS department_name,
+                r.name AS role_name
+            FROM users u
+            LEFT JOIN department d ON u.departmentid = d.id
+            LEFT JOIN role r ON u.roleid = r.id
+        `;
+
         const conditions = [];
+        const parameters = [];
+
         if (name) {
-            conditions.push(`username LIKE '%${name}%'`);
+            conditions.push('u.username = ?');
+            parameters.push(name);
         }
         if (cellphone) {
-            conditions.push(`Cellphone LIKE '%${cellphone}%'`);
+            conditions.push('u.cellphone LIKE ?');
+            parameters.push(`%${cellphone}%`);
         }
         if (conditions.length > 0) {
-            statement += 'WHERE ' + conditions.join(' AND ') + ' ';
+            baseStatement += 'WHERE ' + conditions.join(' AND ') + ' ';
         }
 
-        statement += `LIMIT ${size} OFFSET ${offset};`;
+        // 1. 查询总记录数
+        const countStatement = `SELECT COUNT(*) AS total FROM (${baseStatement}) AS countQuery`;
 
-        const [result] = await conn.execute(statement);
-        return result;
+        // 2. 查询分页数据
+        let dataStatement = baseStatement;
+        if (typeof size !== 'undefined' || typeof offset !== 'undefined') {
+            dataStatement += `LIMIT ${size || 10} OFFSET ${offset || 0}`;
+        }
+
+        try {
+            // 执行查询总记录数
+            const [countRows] = await conn.execute(countStatement, parameters);
+            const totalCount = countRows[0].total;
+
+            // 执行分页数据查询
+            const [dataRows] = await conn.execute(dataStatement, parameters);
+        
+            // 返回结果包含数据和总记录数
+            return {
+                totalCount,
+                data: dataRows
+            };
+        } catch (error) {
+            console.error('Error in getUserList:', error);
+            throw error;
+        }
     }
+
+
+
+
     async createUser(userData) {
         // 插入数据库
         const { username, realname, password, cellphone, departmentid, roleid, salt } = userData;

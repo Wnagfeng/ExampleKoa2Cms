@@ -19,11 +19,13 @@ const verifyUser = async (ctx, next) => {
 }
 // 处理密码的middleware~
 const handlePassword = async (ctx, next) => {
-    const { password } = ctx.request.body;
+    const { password } = ctx.request.body;// 获取前端传递的密码
+    // 解密前端传递的密码
+    const DecryptPassword = decrypt(password, WEB_PRIVATE_KEY)
     // 获取一个盐值
     const salt = generateSalt();
     // 加密密码
-    ctx.request.body.password = md5password(password, salt)
+    ctx.request.body.password = md5password(DecryptPassword, salt)// 二次加密密码
     ctx.request.body.salt = salt
     await next();
 }
@@ -49,6 +51,7 @@ const verifyLogin = async (ctx, next) => {
     const DecryptPassword = decrypt(password, WEB_PRIVATE_KEY)
     const salt = await userService.getUserSaltByName(username)
     if (md5password(DecryptPassword, salt) !== user.password) {
+        console.log(md5password(DecryptPassword, salt), user.password)
         const error = new Error(errorTypes.PASSWORD_IS_INCORRENT);
         return ctx.app.emit('error', error, ctx);
     }

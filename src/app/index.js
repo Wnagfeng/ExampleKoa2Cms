@@ -11,7 +11,7 @@ app.useRoutes = useRoutes;
 // 使用 cors 中间件
 app.use(cors({
     origin: '*', // 允许所有来源，可以根据需要进行配置
-    allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // 允许的 HTTP 方法
+    allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', "PATCH"], // 允许的 HTTP 方法
     allowHeaders: ['Content-Type', 'Authorization', 'Accept'], // 允许的 HTTP 头
     exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'] // 暴露的 HTTP 头
 }));

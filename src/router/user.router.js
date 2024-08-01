@@ -6,7 +6,7 @@ const { login, success } = require("../controller/auth.controller")
 User.post("/register", verifyUser, handlePassword, register);
 User.post('/login', verifyLogin, login);
 User.get("/testlogin", verifyAuth, success);
-User.get("/user/list", verifyAuth, getUserlist);
+User.post("/user/list", verifyAuth, getUserlist);
 User.post("/user", verifyAuth, verifyUsername, handlePassword, createUser)
 User.delete("/user/:id", verifyAuth, deleteUser)
 User.patch("/user/:id", patchUser)

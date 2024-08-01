@@ -73,12 +73,52 @@ class RoleService {
     }
   }
   async getRoleList(queryData = {}) {
-    const { offset = 0, size = 10 } = queryData;
-    console.log(queryData)
-    const sql = `SELECT * FROM role LIMIT ?,?`;
-    const [result] = await conn.query(sql, [offset, size]);
-    return result;
+    const hasPagination = 'offset' in queryData && 'size' in queryData;
+    const { offset, size, name } = queryData;
+    let sql;
+    let params = [];
+
+    // 1. 构建基础查询语句
+    let baseStatement = `SELECT * FROM role`;
+
+    // 2. 构建查询条件
+    if (name) {
+      baseStatement += ` WHERE name LIKE ?`;
+      params.push(`%${name}%`);
+    }
+
+    // 3. 查询总记录数
+    const countStatement = `SELECT COUNT(*) AS total FROM (${baseStatement}) AS countQuery`;
+
+    // 4. 查询分页数据
+    if (hasPagination) {
+      sql = `${baseStatement} LIMIT ?, ?`;
+      params.push(offset, size);
+    } else {
+      sql = baseStatement;
+    }
+
+    try {
+      // 执行查询总记录数
+      const [countRows] = await conn.query(countStatement, params);
+      const totalCount = countRows[0].total;
+
+      // 执行分页数据查询
+      const [dataRows] = await conn.query(sql, params);
+
+      // 返回结果包含数据和总记录数
+      return {
+        totalCount,
+        data: dataRows
+      };
+    } catch (error) {
+      console.error('Error in getRoleList:', error);
+      throw error;
+    }
   }
+
+
+
   async getRole(roleId) {
     // 查询角色信息
     const roleQuery = 'SELECT * FROM role WHERE id = ?';

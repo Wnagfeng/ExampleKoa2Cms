@@ -7,8 +7,8 @@ Goods.get('/goods/category/count', verifyAuth, getCount);
 Goods.get("/goods/category/sale", verifyAuth, getCategorySale);
 Goods.get("/goods/category/favor", verifyAuth, getFavor)
 Goods.get("/goods/sale/top10", verifyAuth, getTop10)
-Goods.get("/goods/address/sale", verifyAuth, getAmountList)
-Goods.get("/goods/amount/list", verifyAuth, getAddressSale)
+Goods.get("/goods/address/sale", verifyAuth, getAddressSale)
+Goods.get("/goods/amount/list", verifyAuth, getAmountList)
 // 商品信息
 Goods.post('/goods/insert', insertProducts);// 批量插入数据用(别轻易调用除非products中没有数据)
 Goods.post('/goods', verifyAuth, createProduct); // 创建商品

@@ -23,26 +23,24 @@ class UserController {
         const queydata = ctx.request.body
 
         const res = await userService.getUserList(queydata)
-        res.forEach(item => {
-            delete item.password
-            delete item.salt
-        })
+        console.log(res)
+
         return ctx.body = {
             code: 200,
-            totalCount: res.length,
+            totalCount: res.totalCount,
             message: "获取用户列表成功！",
-            data: res
+            data: res.data
         }
     }
     async createUser(ctx, next) {
         const userdata = ctx.request.body;
         const res = await userService.createUser(userdata)
+        console.log(res)
         if (res.affectedRows == 1) {
             ctx.body = {
                 code: 200,
                 message: "创建用户成功！",
                 data: res
-
             }
         }
 
@@ -50,6 +48,7 @@ class UserController {
     }
     async deleteUser(ctx, next) {
         const { id } = ctx.params
+        console.log(id)
         const res = await userService.deleteUser(id)
         if (res.affectedRows == 1) {
             ctx.body = {
