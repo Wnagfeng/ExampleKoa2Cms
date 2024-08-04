@@ -1,0 +1,1427 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "蘑菇街管理系统",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "登录注册"
+    },
+    {
+      "name": "系统管理"
+    },
+    {
+      "name": "系统管理/用户管理"
+    },
+    {
+      "name": "系统管理/部门管理"
+    },
+    {
+      "name": "系统管理/图表数据"
+    },
+    {
+      "name": "系统管理/商品管理"
+    },
+    {
+      "name": "系统管理/类别管理"
+    },
+    {
+      "name": "系统管理/菜单管理"
+    },
+    {
+      "name": "系统管理/角色管理"
+    }
+  ],
+  "paths": {
+    "/register": {
+      "post": {
+        "summary": "用户注册",
+        "x-apifox-folder": "登录注册",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "登录注册"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {},
+                "x-apifox-ignore-properties": [],
+                "x-apifox-orders": []
+              },
+              "example": {
+                "username": "CoderJoon",
+                "password": "D3DaX5C+gYydB5HIfTpyCXqtVTf1RMKw2TSKjAaYUn8QH7eyf8pnJz4DcYzdJcTVFSGVA5eCWlJSCq5mMPXAew=="
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/4851295/apis/api-195524695-run",
+        "security": []
+      }
+    },
+    "/login": {
+      "post": {
+        "summary": "用户登录",
+        "x-apifox-folder": "登录注册",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "登录注册"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {},
+                "x-apifox-ignore-properties": [],
+                "x-apifox-orders": []
+              },
+              "example": {
+                "username": "CoderTon",
+                "password": "qbzsM2tk2EiTnZhWabZbrr8+RLjqErRyC3exE+VXuaj8Mq/tLt+EhKbAPvAZ9C71lgR/rj+wcBEhCVZYj+cSBg=="
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/4851295/apis/api-195529870-run",
+        "security": []
+      }
+    },
+    "/testlogin": {
+      "get": {
+        "summary": "测试授权",
+        "x-apifox-folder": "登录注册",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "登录注册"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {},
+                "x-apifox-ignore-properties": [],
+                "x-apifox-orders": []
+              },
+              "example": ""
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/4851295/apis/api-195530010-run",
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/userlist": {
+      "post": {
+        "summary": "用户列表",
+        "x-apifox-folder": "系统管理/用户管理",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "系统管理/用户管理"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/4851295/apis/api-196545690-run",
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/createuser": {
+      "post": {
+        "summary": "创建用户",
+        "x-apifox-folder": "系统管理/用户管理",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "系统管理/用户管理"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/4851295/apis/api-196546653-run",
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/deleteuser/1": {
+      "delete": {
+        "summary": "删除用户",
+        "x-apifox-folder": "系统管理/用户管理",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "系统管理/用户管理"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/4851295/apis/api-196574147-run",
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/": {
+      "patch": {
+        "summary": "修改用户",
+        "x-apifox-folder": "系统管理/用户管理",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "系统管理/用户管理"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/4851295/apis/api-196585413-run",
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/departments": {
+      "post": {
+        "summary": "创建部门",
+        "x-apifox-folder": "系统管理/部门管理",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "系统管理/部门管理"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/4851295/apis/api-197056132-run",
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/department/5": {
+      "delete": {
+        "summary": "删除部门",
+        "x-apifox-folder": "系统管理/部门管理",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "系统管理/部门管理"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/4851295/apis/api-197109090-run",
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/department/40": {
+      "patch": {
+        "summary": "修改部门",
+        "x-apifox-folder": "系统管理/部门管理",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "系统管理/部门管理"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/4851295/apis/api-197111385-run",
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/department/1": {
+      "get": {
+        "summary": "获取部门",
+        "x-apifox-folder": "系统管理/部门管理",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "系统管理/部门管理"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/4851295/apis/api-197119794-run",
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/goods/category/count": {
+      "get": {
+        "summary": "每个分类商品的个数",
+        "x-apifox-folder": "系统管理/图表数据",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "系统管理/图表数据"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/4851295/apis/api-197197439-run",
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/goods/category/sale": {
+      "get": {
+        "summary": "每个分类商品的销量",
+        "x-apifox-folder": "系统管理/图表数据",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "系统管理/图表数据"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/4851295/apis/api-197197521-run",
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/goods/category/favor": {
+      "get": {
+        "summary": "每个分类商品的收藏",
+        "x-apifox-folder": "系统管理/图表数据",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "系统管理/图表数据"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/4851295/apis/api-197199120-run",
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/goods/sale/top10": {
+      "get": {
+        "summary": "销量前10的商品数量",
+        "x-apifox-folder": "系统管理/图表数据",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "系统管理/图表数据"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/4851295/apis/api-197199240-run",
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/goods/address/sale": {
+      "get": {
+        "summary": "不同城市的销量数据",
+        "x-apifox-folder": "系统管理/图表数据",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "系统管理/图表数据"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/4851295/apis/api-197199552-run",
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/goods/amount/list": {
+      "get": {
+        "summary": "商品数据统计的数量",
+        "x-apifox-folder": "系统管理/图表数据",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "系统管理/图表数据"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/4851295/apis/api-197199892-run",
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/goods/insert": {
+      "post": {
+        "summary": "批量插入",
+        "x-apifox-folder": "系统管理/商品管理",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "数据库中有Products数据就别调用了很耗费性能的",
+        "tags": [
+          "系统管理/商品管理"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/4851295/apis/api-197492898-run",
+        "security": []
+      }
+    },
+    "/goods/create": {
+      "post": {
+        "summary": "创建商品",
+        "x-apifox-folder": "系统管理/商品管理",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "系统管理/商品管理"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {},
+                "x-apifox-ignore-properties": [],
+                "x-apifox-orders": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/4851295/apis/api-197492978-run",
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/goods/1": {
+      "patch": {
+        "summary": "修改商品",
+        "x-apifox-folder": "系统管理/商品管理",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "系统管理/商品管理"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/4851295/apis/api-197492980-run",
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "get": {
+        "summary": "获取商品",
+        "x-apifox-folder": "系统管理/商品管理",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "系统管理/商品管理"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/4851295/apis/api-197492995-run",
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/goods/176": {
+      "delete": {
+        "summary": "删除商品",
+        "x-apifox-folder": "系统管理/商品管理",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "系统管理/商品管理"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/4851295/apis/api-197492983-run",
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/categorie": {
+      "post": {
+        "summary": "创建类别",
+        "x-apifox-folder": "系统管理/类别管理",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "系统管理/类别管理"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {},
+                "x-apifox-ignore-properties": [],
+                "x-apifox-orders": []
+              },
+              "example": {
+                "name": "test"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/4851295/apis/api-197493168-run",
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/categorie/15": {
+      "delete": {
+        "summary": "删除类别",
+        "x-apifox-folder": "系统管理/类别管理",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "系统管理/类别管理"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/4851295/apis/api-197589025-run",
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "get": {
+        "summary": "获取分类",
+        "x-apifox-folder": "系统管理/类别管理",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "系统管理/类别管理"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/4851295/apis/api-197597656-run",
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/categorie/16": {
+      "patch": {
+        "summary": "修改类别",
+        "x-apifox-folder": "系统管理/类别管理",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "系统管理/类别管理"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {},
+                "x-apifox-ignore-properties": [],
+                "x-apifox-orders": []
+              },
+              "example": {
+                "name": "test2"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/4851295/apis/api-197591205-run",
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/categorie/list": {
+      "get": {
+        "summary": "分类列表",
+        "x-apifox-folder": "系统管理/类别管理",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "系统管理/类别管理"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/4851295/apis/api-197600641-run",
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/menu": {
+      "post": {
+        "summary": "创建菜单",
+        "x-apifox-folder": "系统管理/菜单管理",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "系统管理/菜单管理"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/4851295/apis/api-197912141-run",
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "get": {
+        "summary": "菜单列表",
+        "x-apifox-folder": "系统管理/菜单管理",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "系统管理/菜单管理"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/4851295/apis/api-198336464-run",
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/menu/49": {
+      "delete": {
+        "summary": "删除菜单",
+        "x-apifox-folder": "系统管理/菜单管理",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "系统管理/菜单管理"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/4851295/apis/api-198336449-run",
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/menu/53": {
+      "patch": {
+        "summary": "修改菜单",
+        "x-apifox-folder": "系统管理/菜单管理",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "系统管理/菜单管理"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/4851295/apis/api-198336451-run",
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/menu/1": {
+      "get": {
+        "summary": "获取菜单",
+        "x-apifox-folder": "系统管理/菜单管理",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "系统管理/菜单管理"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/4851295/apis/api-198336458-run",
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/role": {
+      "post": {
+        "summary": "创建修改角色",
+        "x-apifox-folder": "系统管理/角色管理",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "系统管理/角色管理"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/4851295/apis/api-198353644-run",
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/role/21": {
+      "delete": {
+        "summary": "删除角色",
+        "x-apifox-folder": "系统管理/角色管理",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "系统管理/角色管理"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/4851295/apis/api-198453526-run",
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/role/list": {
+      "post": {
+        "summary": "角色列表",
+        "x-apifox-folder": "系统管理/角色管理",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "系统管理/角色管理"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {},
+                "x-apifox-ignore-properties": [],
+                "x-apifox-orders": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/4851295/apis/api-198453630-run",
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/role/22": {
+      "get": {
+        "summary": "获取角色",
+        "x-apifox-folder": "系统管理/角色管理",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "系统管理/角色管理"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/4851295/apis/api-198453678-run",
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/role/4/menu": {
+      "get": {
+        "summary": "获取角色权限列表",
+        "x-apifox-folder": "系统管理/角色管理",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "系统管理/角色管理"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/4851295/apis/api-198453804-run",
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/goods/list": {
+      "get": {
+        "summary": "未命名接口",
+        "x-apifox-folder": "系统管理/商品管理",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "系统管理/商品管理"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/4851295/apis/api-200734893-run",
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {},
+    "securitySchemes": {
+      "bearer": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8000",
+      "description": "开发环境"
+    }
+  ]
+}

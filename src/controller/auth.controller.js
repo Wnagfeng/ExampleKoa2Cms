@@ -3,7 +3,8 @@ const { PRIVATE_KEY } = require('../app/config');
 
 class AuthController {
   async login(ctx, next) {
-    const { UserID, UserName } = ctx.user;
+    const { UserID, UserName, userid, roleid } = ctx.user;
+    console.log(ctx.user);
     const token = jwt.sign({ UserID, UserName }, PRIVATE_KEY, {
       expiresIn: 60 * 60 * 24,
       algorithm: 'RS256'
@@ -12,7 +13,7 @@ class AuthController {
       code: 200,
       message: "登录成功",
       data: {
-        UserID, UserName, token
+        UserID, UserName, token, userid, roleid
       }
     }
 

@@ -23,7 +23,6 @@ class UserController {
         const queydata = ctx.request.body
 
         const res = await userService.getUserList(queydata)
-        console.log(res)
 
         return ctx.body = {
             code: 200,
@@ -62,8 +61,10 @@ class UserController {
     async patchUser(ctx, next) {
         const patchId = ctx.params.id;
         const patchData = ctx.request.body;
+        console.log(patchData)
 
         if (patchData.password) {
+            console.log("进去了")
             const salt = generateSalt();
             patchData.salt = salt;
             patchData.password = md5password(patchData.password, salt);

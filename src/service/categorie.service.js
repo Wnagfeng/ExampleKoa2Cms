@@ -27,9 +27,21 @@ class CategorieService {
         return result[0];
     }
     async getCategoriesList() {
-        const sql = `SELECT * FROM categories`;
-        const result = await conn.query(sql);
-        return result;
+        // 1. 查询所有分类数据
+        const dataQuery = `SELECT * FROM categories`;
+        const [dataRows] = await conn.query(dataQuery);
+
+        // 2. 查询分类表的总数
+        const countQuery = `SELECT COUNT(*) AS total FROM categories`;
+        const [countRows] = await conn.query(countQuery);
+        const totalCount = countRows[0].total;
+
+        // 3. 返回包含数据和总数的结果
+        return {
+            totalCount,
+            data: dataRows
+        };
     }
+
 }
 module.exports = new CategorieService();

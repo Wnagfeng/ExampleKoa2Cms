@@ -108,6 +108,11 @@ class GoodsController {
             }
         }
     }
+    async getProducyList(ctx, next) {
+        const queryData = ctx.request.body;
+        console.log(queryData)
+
+    }
 }
 
 module.exports = new GoodsController();

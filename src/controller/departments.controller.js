@@ -2,16 +2,17 @@ const DepartmentService = require("../service/department.service")
 class DepartmentController {
     constructor() { }
     async getDepartmentsList(ctx, next) {
-        const queryDepartmentdata = ctx.request.body
-        const res = await DepartmentService.getDepartmentList(queryDepartmentdata)
+        const queryDepartmentdata = ctx.request.body;
+        const res = await DepartmentService.getDepartmentList(queryDepartmentdata);
         ctx.body = {
             code: 200,
-            totalCount: res.length,
             message: "查询成功！",
-            data: res,
-
-        }
+            totalCount: res.totalCount, // 总数从 res.totalCount 获取
+            data: res.data // 数据列表从 res.data 获取
+        };
+        console.log(res);
     }
+
     async createDepartment(ctx, next) {
         const departmentData = ctx.request.body
         const res = await DepartmentService.createDepartment(departmentData)

@@ -26,7 +26,9 @@ class RoleController {
         const res = await RoleService.getRoleList(quertData);
         ctx.body = {
             code: 200,
-            res: res
+            message: "查询成功！",
+            totalCount: res.totalCount, // 总数从 res.totalCount 获取
+            data: res.data // 数据列表从 res.data 获取
         }
     }
     async getRole(ctx, next) {
